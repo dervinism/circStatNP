@@ -3,11 +3,11 @@ Non-parametric circular statistics functions for Matlab
 
 Description: Non-parametric circular statistics functions for Matlab. They are intended as complimentary to Circular Statistics Toolbox. Non-parametric circular t-test equivalents are already available on Matlab File Exchange.
 
-Contents:
-circ_confmeanFisher   Non-parametric confidence interval
-circ_corrccnp         Non-parametric circular-circular correlation
-circ_corrclnp         Non-parametric circular-linear correlation
-circ_stdFisher        Non-parametric circular standard error of the mean
+Contents:  
+circ_confmeanFisher   Non-parametric confidence interval  
+circ_corrccnp         Non-parametric circular-circular correlation  
+circ_corrclnp         Non-parametric circular-linear correlation  
+circ_stdFisher        Non-parametric circular standard error of the mean  
 
 References are provided in function descriptions.
 
