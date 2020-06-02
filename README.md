@@ -11,4 +11,6 @@ circ_stdFisher - Non-parametric circular standard error of the mean
 
 References are provided in function descriptions.
 
+Available at https://github.com/dervinism/circStatNP.git  
+
 By Martynas Dervinis 2020 (martynas.dervinis@gmail.com).
