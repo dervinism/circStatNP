@@ -3,7 +3,7 @@ function s0 = circ_stdFisher(angularData)
 %   Computes the circular standard error of the mean as in Fisher & Lewis
 %   (1983).
 %
-%   Input: angularData - sample of angles in radians.
+%   Input: angularData - a vector sample of angles in radians.
 %   Output: s0.
 %
 %   Dependencies: circmean and circ_r of Circular Statistics Toolbox.
