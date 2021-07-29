@@ -1,5 +1,5 @@
 function [t0, t] = circ_confmeanFisher(alpha, xi, dim)
-% [t0, t] = circ_meanFisher(alpha, xi, dim)
+% [t0, t] = circ_confmeanFisher(alpha, xi, dim)
 %   Computes confidence limits on the mean for circular data without
 %   making assumptions about the data distribution.
 %
@@ -12,7 +12,7 @@ function [t0, t] = circ_confmeanFisher(alpha, xi, dim)
 %   Output: t0 - half (1-xi)% confidence interval.
 %           t - mean +- d yields upper/lower (1-xi)% confidence limit.
 %
-%   Dependencies: circ_mean and circ_std of Circular Statistics Toolbox.
+%   Dependencies: circ_std of Circular Statistics Toolbox.
 %
 % References:
 %   Fisher, N. I. & Lewis, T. (1983). Estimating the common mean direction
@@ -54,15 +54,15 @@ if alphaSize(1) > 1 && alphaSize(2) > 1
   s0 = nan(1, nCond);
   for iCond = 1:nCond
     if dim == 1
-      u(iCond) = circ_mean(alpha(~isnan(alpha(:,iCond)),iCond));
+      u(iCond) = circmean(alpha(~isnan(alpha(:,iCond)),iCond));
       s0(iCond) = circ_std(alpha(~isnan(alpha(:,iCond)),iCond));
     elseif dim == 2
-      u(iCond) = circ_mean(alpha(iCond,~isnan(alpha(iCond,:))));
+      u(iCond) = circmean(alpha(iCond,~isnan(alpha(iCond,:))));
       s0(iCond) = circ_stdFisher(alpha(iCond,~isnan(alpha(iCond,:))));
     end
   end
 else
-  u = circ_mean(alpha(~isnan(alpha)));
+  u = circmean(alpha(~isnan(alpha)));
   s0 = circ_stdFisher(alpha(~isnan(alpha)));
 end
 
