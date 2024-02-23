@@ -64,9 +64,9 @@ rVec = 0:0.000001:1;
 U = 2*(n-1).*rVec;
 U_pdf = exp(-0.5.*U).*(1-exp(-0.5.*U));
 U_cdf = cumsum(U_pdf)/sum(U_pdf);
-i = find(rVec > r, 1,'first') - 1;
-pval = 1 - U_cdf(i);
-U = 2*(n-1).*r;
+i = max([1 find(rVec > abs(r), 1,'first') - 1]);
+pval = max([eps(0) 1 - U_cdf(i)]);
+U = 2*(n-1).*abs(r);
 
 % Compute the cut-off r value
 alpha = 0.05;

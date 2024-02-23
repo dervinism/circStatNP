@@ -7,6 +7,10 @@ function [rho, pval, U_n] = circ_corrclnp(alpha, x)
 % Input: alpha - a vector sample of angular values in radians.
 %        x - a vector of corresponding linear values.
 % Output: rho - a non-parametric circular-linear correlation coefficient.
+%               It is always positive, so you have to work out the actual
+%               direction of the correlation (correlatio vs
+%               anticorrelation) by fitting the circular-linear regression
+%               to the data.
 %         pval - a corresponding p-value.
 %         U_n statistic.
 %
@@ -43,9 +47,9 @@ end
 % Compute the D_n statistic
 r = rem(n, 2);
 if ~r % even
-  a_n = 1/(1 + 5*((cot(pi/n))^2) + 4*((cot(pi/n))^4));
+  a_n = 1/(1 + 5*((cot(pi/n))^2) + 4*((cot(pi/n))^4)); % Always positive
 else  % odd
-  a_n = (2*((sin(pi/n))^4))/((1 + cos(pi/n))^3);
+  a_n = (2*((sin(pi/n))^4))/((1 + cos(pi/n))^3); % Always positive
 end
 
 T_c = 0; T_s = 0;
@@ -54,7 +58,7 @@ for i = 1:n
   T_s = T_s + xRanks(i)*sin(alphaRanks(i));
 end
 
-D_n = a_n*(T_c^2 + T_s^2);
+D_n = a_n*(T_c^2 + T_s^2); % Always positive
 rho = D_n;
 
 % Compute the p-value
